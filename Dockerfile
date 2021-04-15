@@ -17,13 +17,16 @@ RUN set -ex \
     musl-dev \
     zlib-dev \
     libffi-dev \
+    git \
     && apk add --no-cache --virtual .build-deps \
-    build-base \
+    build-base
+RUN set -ex \
     && pip install -U pip \
     && pip wheel ehforwarderbot \
     && pip wheel imageio-ffmpeg \
     && pip wheel efb-telegram-master \
-    && pip wheel efb-qq-slave \
+    && pip wheel efb-qq-slave
+RUN pip wheel git+https://github.com/ehForwarderBot/efb-wechat-slave \
     && apk del --purge .build-deps
 
 FROM python:3.9-alpine
