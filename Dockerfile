@@ -27,7 +27,8 @@ RUN set -ex \
     && apk del --purge .build-deps
 
 FROM python:3.9-alpine
-MAINTAINER PolyQY <gzmanyang@gmail.com>
+LABEL maintainer="Easton Man"
+LABEL email="easton@techminer.org"
 
 ENV LANG C.UTF-8
 
