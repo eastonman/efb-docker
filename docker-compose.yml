@@ -1,0 +1,33 @@
+version: "2.4"
+
+networks:
+  efb:
+    name: efb
+
+services:
+  bot:
+    container_name: efb-master
+    image: eastonman/efb-docker
+    restart: unless-stopped
+    volumes:
+      - ./profiles:/root/.ehforwarderbot/profiles
+    networks:
+        efb:
+            aliases:
+                - bot
+    depends_on:
+      - mirai
+
+  mirai:
+    container_name: efb-slave-qq-mirai
+    image: docker.pkg.github.com/eastonman/mirai-docker/mirai-docker:latest
+    restart: unless-stopped
+    networks:
+      efb:
+        aliases:
+          - mirai
+    environment:
+      - MIRAI_QQ_ACCOUNT=
+      - MIRAI_QQ_PASSWORD=
+
+
