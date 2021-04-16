@@ -1,4 +1,4 @@
-name: ci
+name: DockerHub Publish
 
 on:
   push:
