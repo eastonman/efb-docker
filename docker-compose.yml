@@ -12,9 +12,9 @@ services:
     volumes:
       - ./profiles:/root/.ehforwarderbot/profiles
     networks:
-        efb:
-            aliases:
-                - bot
+      efb:
+        aliases:
+          - bot
     depends_on:
       - mirai
 
@@ -22,6 +22,8 @@ services:
     container_name: efb-slave-qq-mirai
     image: docker.pkg.github.com/eastonman/mirai-docker/mirai-docker:latest
     restart: unless-stopped
+    volumes: 
+      - ./mirai-qq.yml:/config/MiraiApiHttp/setting.yml
     networks:
       efb:
         aliases:
