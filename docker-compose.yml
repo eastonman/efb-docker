@@ -20,7 +20,7 @@ services:
 
   mirai:
     container_name: efb-slave-qq-mirai
-    image: docker.pkg.github.com/eastonman/mirai-docker/mirai-docker:latest
+    image: eastonman/mirai-docker:latest
     restart: unless-stopped
     volumes: 
       - ./mirai-qq.yml:/config/MiraiApiHttp/setting.yml
