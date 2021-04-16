@@ -25,7 +25,7 @@ RUN set -ex \
     && pip wheel ehforwarderbot \
     && pip wheel imageio-ffmpeg \
     && pip wheel efb-telegram-master \
-    && pip wheel efb-qq-slave
+    && pip wheel git+https://github.com/milkice233/efb-qq-slave
 RUN pip wheel git+https://github.com/ehForwarderBot/efb-wechat-slave \
     pip wheel git+https://github.com/milkice233/efb-qq-plugin-mirai \
     && apk del --purge .build-deps
