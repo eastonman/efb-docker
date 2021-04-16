@@ -27,6 +27,7 @@ RUN set -ex \
     && pip wheel efb-telegram-master \
     && pip wheel efb-qq-slave
 RUN pip wheel git+https://github.com/ehForwarderBot/efb-wechat-slave \
+    pip wheel git+https://github.com/milkice233/efb-qq-plugin-mirai \
     && apk del --purge .build-deps
 
 FROM python:3.9-alpine
@@ -45,6 +46,8 @@ RUN pip install -U pip \
     && pip install imageio-ffmpeg -f /wheels \
     && pip install efb-telegram-master -f /wheels \
     && pip install efb-qq-slave -f /wheels \
+    && pip install efb-wechat-slave -f /wheels \
+    && pip install efb-qq-plugin-mirai -f /wheels \
     && rm -rf /wheels \
     && rm -rf /root/.cache/pip/*
 
